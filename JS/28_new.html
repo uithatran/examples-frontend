@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script>
+        function myFunc() {
+            this.x= 100;
+            return {
+                a:123,
+            }
+        }
+        myFunc.prototype.y = 200;
+
+        var obj1 = new myFunc();
+        console.log(obj1.x);
+        console.log(obj1.y);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

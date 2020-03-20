@@ -1,0 +1,30 @@
+<html>
+<head>
+
+</head>
+<body>
+	<script>
+        function Person(_firstName, _lastName) {
+            this.firstName = _firstName;
+            this.lastName = _lastName;
+        }
+
+        Person.prototype.getFullName = function() {
+            return this.firstName + " " + this.lastName;
+        }
+
+        function Student(_firstName, _lastName, _school, _grade) {
+            Person.call(this, _firstName, _lastName);
+            this.school = _school;
+            this.grade = _grade;
+        }
+        Student.prototype = new Person();
+        // Student.prototype.constructor = Student;
+
+        var std = new Student("Ha", "Tran Thai", "BACHHO", "10");
+        console.log(std.getFullName());
+        console.log(std instanceof Person);
+        console.log(std instanceof Student);
+	</script>
+</body>
+</html>

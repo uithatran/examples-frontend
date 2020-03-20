@@ -1,0 +1,24 @@
+html, body{
+    height: 100%;
+}
+
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+div {
+    padding: 0 5px;
+}
+
+button {
+    height: 40px;
+}
+
+select {
+    margin: 5px 10px;
+}

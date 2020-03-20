@@ -1,0 +1,42 @@
+<html>
+<head>
+	<script>
+		// <!-- function Person(_firstName, _lastName) { -->
+		// 	<!-- this.firstName = _firstName; -->
+		// 	<!-- this.lastName = _lastName; -->
+		// 	<!-- this.fullName = function() { -->
+		// 		<!-- return this.firstName + " " + this.lastName; -->
+		// 	<!-- } -->
+		// <!-- } -->
+		
+		//  <!-- var person1 = new Person("Ha", "Tran Thai"); -->
+		//  <!-- console.log(person1.fullName()); -->
+		 
+		//  <!-- var person2 = new Person(); -->
+		//  <!-- console.log(person2.fullName()); -->
+		 
+		 function Person() {
+			var _firstName = "unknown";
+			Object.defineProperties(this,{
+				"FirstName": {
+					set:function(value) {
+						_firstName = value;
+					},
+					get:function(){
+						return _firstName;
+					}
+				}
+			});
+		 }
+
+		 var person1 = new Person();
+		 person1.FirstName = "Thai Ha";
+		 console.log(person1.FirstName)
+		 
+	</script>
+</head>
+<body>
+<!-- https://smartlearning.tma.com.vn/enroll/index.php?id=96 -->
+<!-- https://smartlearning.tma.com.vn/enrol/index.php?id=96 -->
+</body>
+</html>

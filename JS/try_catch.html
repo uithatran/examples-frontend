@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+<body>
+	<div id = "errorMessage">ABC</div>
+	<script>
+		try {
+			<!-- var a = 10; -->
+			var b = 10;
+			var c = a/b;
+			<!-- throw { -->
+				<!-- message: "Error division", -->
+			<!-- }; -->
+		}
+		catch(ex){
+			<!-- alert(ex.message); -->
+			document.getElementById("errorMessage").innerHTML = ex;
+		}
+		finally {
+			console.log("Finally block executed");
+		}
+	</script>
+</body>
+</html>

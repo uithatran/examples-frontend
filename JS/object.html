@@ -1,0 +1,61 @@
+<html>
+<head>
+	<script>
+		var empty = {};
+		//console.log(empty);
+		
+		var person1 = {
+			firstName: "Tran",
+		}
+		//console.log(person1.firstName);
+		var person1 = {
+			firstName: "Tran",
+			lastName: "Thai Ha",
+			age: 20,
+			fullName: function() {
+				return this.firstName + " " + this.lastName;
+			}
+		}
+		for(var key in person1) {
+			//console.log(key);
+		}
+		//console.log(person1.fullName());
+		
+		person1.firstName = "Hello";
+		person1.lastName = "World";
+		//console.log(person1.fullName());
+		
+		person1["firstName"] = "Hoang";
+		person1["lastName"] = "Thien Ba";
+		//console.log(person1.fullName());
+		
+		var person2 = new Object();
+		person2.firstName = "Pham";
+		person2.lastName = "Bao";
+		person2.fullName = function() {
+			return this.firstName + " " + this.lastName;
+		}
+		//console.log(person2.fullName());
+		
+		var person3 = new Object();
+		person3.firstName = "tran";
+		if(person3.hasOwnProperty("firstName")) {
+			//console.log("This property is existed");
+		}
+		else {
+			//console.log("This property is not existed");
+		}
+		
+		function changePerson(person12) {
+			person12.firstName = "Nguyen";
+			person12.lastName = "Ngoc Hai";
+		}
+		changePerson(person1);
+		console.log(person1.firstName + " " + person1.lastName);
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

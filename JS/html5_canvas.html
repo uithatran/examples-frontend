@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<canvas id="lineCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+	Your browser does not support the HTML5 canvas tag.</canvas>
+	
+	<canvas id="circleCanvas" width="200" height="200" ></canvas>
+
+	<script>
+		var lineC = document.getElementById("lineCanvas");
+		var line = lineC.getContext("2d");
+		line.moveTo(0,0);
+		line.lineTo(200,100);
+		line.stroke();
+		
+		var circleC = document.getElementById("circleCanvas");
+		var circle = circleC.getContext("2d");
+		<!-- circle. -->
+	</script>
+</body>
+</html>

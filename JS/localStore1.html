@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function count() {
+  if(typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Bạn đã nhấn vào nút trên " + localStorage.clickcount + " lần.";
+  } else {
+    document.getElementById("result").innerHTML = "Rất tiếc, trình duyệt của bạn không hỗ trợ Local Storage...";
+  }
+}
+</script>
+</head>
+<body>
+  <p>
+    <button onclick="count()" type="button">Nhấn vào đây!</button>
+  </p>
+  <div id="result"></div>
+  <p>Đóng cửa sổ trình duyệt và thử lại. Bạn sẽ thấy số lần nhấp vào nút sẽ được tiếp tục tăng thay vì đếm lại từ đầu</p>
+</body>
+</html>	

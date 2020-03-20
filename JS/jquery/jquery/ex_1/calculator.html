@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script>
+    // var correct_num, incorrect_num, percent = 0;
+    // if (typeof (Storage) !== "undefined") {
+    //   if (localStorage.lo_correct) {
+    //     correct_num = localStorage.lo_correct;
+    //   } else {
+    //     localStorage.lo_correct = 0;
+    //   }
+
+    //   if (localStorage.lo_incorrect) {
+    //     incorrect_num = localStorage.lo_incorrect;
+    //   } else {
+    //     localStorage.lo_incorrect = 0;
+    //   }
+
+    //   if (localStorage.lo_percent) {
+    //     percent = localStorage.lo_percent;
+    //   } else {
+    //     localStorage.lo_percent = 0;
+    //   }
+    // }
+    // console.log(correct_num);
+    // console.log(incorrect_num);
+    // console.log(percent);
+    // $('.correct_num').val(correct_num);
+    // $('.incorrect_num').val(incorrect_num);
+    // $('.percent_correct').val(percent, "%");
+    $(document).ready(function () {
+      var result = false;
+      var result_n;
+      $("#start-sub").click(function () {
+        var number1 = Math.floor((Math.random() * 10) + 1);
+        var number2 = Math.floor((Math.random() * number1) + 1);
+        result_n = number1 - number2;
+        $('#number1').val(number1);
+        $('#number2').val(number2);
+      });
+
+      $(".btn-number").click(function () {
+        $('#result').val("The answer is....");
+        var result_select = $(this).text();
+        console.log("select:", result_select);
+        console.log("result:", result_n);
+
+        if (result_select == result_n) {
+          $('#result').val("correct");
+          correct_num++;
+          localStorage.lo_correct = Number(localStorage.lo_correct) + 1;
+        } else {
+          $('#result').val("incorrect");
+          incorrect_num++;
+          localStorage.lo_incorrect = Number(localStorage.lo_incorrect) + 1;
+        };
+        if (incorrect_num == 0) {
+          percent = 100;
+          localStorage.lo_percent = percent;
+        }
+        else {
+          percent = (correct_num / (correct_num + incorrect_num)) * 100;
+          percent = percent.toFixed(1);
+          localStorage.lo_percent = percent;
+        }
+        $('.correct_num').val(correct_num);
+        $('.incorrect_num').val(incorrect_num);
+        $('.percent_correct').val(percent, "%");
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="header">
+        <h4>What is the Difference Between the two Number?</h4>
+      </div>
+      <div class="calculator">
+        <div class="button-sub justify-content-center align-items-center">
+          <button class="btn" id="start-sub">Start Subtraction</button>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <input type="text" id="number1" class="form-control w-25 input-number" value="0" disabled>
+          <span> &minus; </span>
+          <input type="text" id="number2" class="form-control w-25 input-number" value="0" disabled>
+          <span> = </span>
+        </div>
+        <div class="d-flex flex-row justify-content-center numbers">
+          <button class="btn btn-number value = '0'">0</button>
+          <button class="btn btn-number value = '1'">1</button>
+          <button class="btn btn-number value = '2'">2</button>
+          <button class="btn btn-number value = '3'">3</button>
+          <button class="btn btn-number value = '4'">4</button>
+          <button class="btn btn-number value = '5'">5</button>
+          <button class="btn btn-number value = '6'">6</button>
+          <button class="btn btn-number value = '7'">7</button>
+          <button class="btn btn-number value = '8'">8</button>
+          <button class="btn btn-number value = '9'">9</button>
+          <button class="btn btn-number value = '10'">10</button>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+          <input type="text" class="form-control w-25 m-2" name="answer" id="result" placeholder="The answer is ..."
+            disabled>
+        </div>
+        <div class="d-flex justify-content-center align-items-center answer">
+          <label for="correct_num">You have</label>
+          <input type="text" class="form-control correct_num" value="0" disabled>
+          <label for="incorrect_num"> . and</label>
+          <input type="text" class="form-control incorrect_num" value="0" disabled>
+          <label for="percent_correct"> incorret. This is </label>
+          <input type="text" class="form-control percent_correct" value="0" disabled>
+          <label>percent correct</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var correct_num, incorrect_num, percent = 0;
+    if (typeof (Storage) !== "undefined") {
+      if (localStorage.lo_correct) {
+        correct_num = localStorage.lo_correct;
+      } else {
+        localStorage.lo_correct = 0;
+      }
+
+      if (localStorage.lo_incorrect) {
+        incorrect_num = localStorage.lo_incorrect;
+      } else {
+        localStorage.lo_incorrect = 0;
+      }
+
+      if (localStorage.lo_percent) {
+        percent = localStorage.lo_percent;
+      } else {
+        localStorage.lo_percent = 0;
+      }
+    }
+    console.log(correct_num);
+    console.log(incorrect_num);
+    console.log(percent);
+    $('.correct_num').val(correct_num);
+    $('.incorrect_num').val(incorrect_num);
+    $('.percent_correct').val(percent, "%");
+  </script>
+</body>
+
+</html>

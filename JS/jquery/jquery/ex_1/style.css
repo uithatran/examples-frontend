@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    position: relative;
+    min-width: 50px;
+    background-color: rgba(80, 80, 80, 0.2);
+    border: 0;
+    margin: 5px;
+}
+
+.btn {
+    border:0px solid transparent;
+}
+
+button:focus {
+    border: 1px solid black;
+}
+
+.answer input {
+    width: 15%;
+    margin: 0px 5px;
+    
+}
+
+.input-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+    max-width: 200px;
+}
+
+.button-sub {
+    text-align: center;
+}
+
+.button-sub .btn {
+    background-color: cornflowerblue;
+}
+
+.answer {
+    padding : 10px 5px;
+}
+
+.answer input {
+    text-align: right;
+}
+
+#result {
+    text-align: center;
+    font-size: 20px;
+}
+

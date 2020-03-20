@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function count() {
+		if(typeof(Storage) !== "undefined") {
+			if (sessionStorage.clickcount) {
+				sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+			} else {
+				sessionStorage.clickcount = 1;
+			}
+			document.getElementById("result").innerHTML = "Bạn đã nhấn vào nút trên " + sessionStorage.clickcount + " lần trong phiên làm việc này.";
+		} else {
+			document.getElementById("result").innerHTML = "Rất tiếc, trình duyệt của bạn không hỗ trợ Local Storage...";
+		}
+    }
+  </script>
+</head>
+<body>
+  <p>
+    <button onclick="count()" type="button">Nhấn vào đây</button>
+  </p>
+  <div id="result"></div>
+  <p>Đóng cửa sổ trình duyệt và thử lại. Bạn sẽ thấy kết quả trong phiên làm việc trước sẽ bị xóa đi.</p>
+</body>
+</html>

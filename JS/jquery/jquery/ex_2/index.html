@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script>
+    $(document).ready(function () {
+      $(".calculate").click(function () {
+        var val_number = $("#convert").val();
+        $('#result').val(calculate(val_number));
+      });
+    });
+    function calculate(n) {
+      return n * 0.45359237;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container d-flex flex-column justify-content-center h-100 w-75">
+    <div class="d-flex flex-row align-items-center">
+      <label for="convert">Convert</label>
+      <input type="number" name="convert" id="convert" class="form-control mx-2">
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected value = "0">Kg</option>
+        <option value="1">Hg</option>
+        <option value="2">Dag</option>
+        <option value="3">Gram</option>
+      </select>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Ib</option>
+      </select>
+      <button class="btn calculate align-items-center">Calculate</button>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+      <label for="result">Result: </label>
+      <input class="form-control ml-3 w-100" id="result" value="0">
+    </div>
+  </div>
+</body>
+
+</html>

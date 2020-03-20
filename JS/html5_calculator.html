@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator App</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style_calculator.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div id="abc">
+			<div id="cal_display">0	</div>
+			<div id="cal_keyboard">
+				<button id="operation_add">+</button>
+				<button id="operation_sub">-</button>
+				<button id="operation_mul">X</button>
+				<button id="operation_div">/</button>
+				<button class="number" id="number_7" value="7">7</button>
+				<button class="number" id="number_8" value="8">8</button>
+				<button class="number" id="number_9" value="9">9</button>
+				<button class="number" id="number_4" value="4">4</button>
+				<button class="number" id="number_5" value="5">5</button>
+				<button class="number" id="number_6" value="6">6</button>
+				<button id="key_equal">=</button>
+				<button class="number" id="number_1" value="1">1</button>
+				<button class="number" id="number_2" value="2">2</button>
+				<button class="number" id="number_3" value="3">3</button>
+				<button class="number" id="number_0" value="0">0</button>
+				<button id="key_dot">.</button>
+				<button id="key_reset">C</button>
+			</div>
+		</div>
+		<script>
+			var number2_curr = 0, operation_curr, total_curr = 0;
+			//handle operations
+			var operation_curr, operation_stt = 0;
+
+			var number_display = document.getElementById("cal_display");
+			number_display.innerHTML = total_curr;
+
+			var number_1 = document.getElementById("number_1");
+			var number_2 = document.getElementById("number_2");
+			var number_3 = document.getElementById("number_3");
+			var number_4 = document.getElementById("number_4");
+			var number_5 = document.getElementById("number_5");
+			var number_6 = document.getElementById("number_6");
+			var number_7 = document.getElementById("number_7");
+			var number_8 = document.getElementById("number_8");
+			var number_9 = document.getElementById("number_9");
+			var number_0 = document.getElementById("number_0");
+
+			var operation_add = document.getElementById("operation_add");
+			var operation_sub = document.getElementById("operation_sub");
+			var operation_mul = document.getElementById("operation_mul");
+			var operation_div = document.getElementById("operation_div");
+
+			var key_equal = document.getElementById("key_equal");
+			var key_reset = document.getElementById("key_reset");
+			var key_dot = document.getElementById("key_dot");
+
+			//Enter number key || Receive envent number button.
+			var temp;
+			number_1.onclick = function() {myFunction1()};
+			function myFunction1(){
+				temp = number_1.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_2.onclick = function() {myFunction2()};
+			function myFunction2(){
+				temp = number_2.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_3.onclick = function() {myFunction3()};
+			function myFunction3(){
+				temp = number_3.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_4.onclick = function() {myFunction4()};
+			function myFunction4(){
+				temp = number_4.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_5.onclick = function() {myFunction5()};
+			function myFunction5(){
+				temp = number_5.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_6.onclick = function() {myFunction6()};
+			function myFunction6(){
+				temp = number_6.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_7.onclick = function() {myFunction7()};
+			function myFunction7(){
+				temp = number_7.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_8.onclick = function() {myFunction8()};
+			function myFunction8(){
+				temp = number_8.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_9.onclick = function() {myFunction9()};
+			function myFunction9(){
+				temp = number_9.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+			number_0.onclick = function() {myFunction0()};
+			function myFunction0(){
+				temp = number_0.value;
+				console.log("temp = " + temp);
+				total_number_current(temp);
+			}
+
+			//display on screen and store total_curr value
+			function total_number_current(a) {
+				equal_stt = 0;
+				operation_add_stt = 0;
+				operation_sub_stt = 0;
+				console.log("total_before = " + total_curr);
+				total_curr = total_curr*10 + parseInt(a);
+				number_display.innerHTML = total_curr;
+				console.log("total_after = " + total_curr);	
+			}
+
+			//handle operations
+			var operation_add_stt = 0;
+			var operation_sub_stt = 0;
+			var operation_mul_stt = 0;
+			var operation_div_stt = 0;
+
+			operation_add.onclick = function() {add_function()};
+			function add_function(){
+				operation_curr = "add";
+				if (operation_stt == 0) {
+					operation_stt = 1;	
+					number2_curr = total_curr;
+					total_curr = 0;
+				}
+				console.log("------------- ADD -------------");
+				console.log("temp_in_equal: " +temp_in_equal);
+				console.log("number2_curr: " +number2_curr);
+				console.log("total_curr: " +total_curr);
+				console.log("operation_stt+: " +operation_stt);
+			}
+			operation_sub.onclick = function() {sub_function()};
+			function sub_function(){
+				operation_curr = "sub";
+				if (operation_stt == 0) {
+					operation_stt = 1;
+					number2_curr = total_curr;
+					total_curr = 0;
+					operation_stt = 1;
+				}
+				console.log("------- SUB -------------");
+				console.log("temp_in_equal: " +temp_in_equal);
+				console.log("number2_curr: " +number2_curr);
+				console.log("total_curr: " +total_curr)
+				console.log("operation_stt-: " +operation_stt);
+			}
+			operation_mul.onclick = function() {mul_function()};
+			function mul_function(){
+				operation_curr = "mul";
+				if (operation_stt == 0) {
+					operation_stt = 1;
+					number2_curr = total_curr;
+					total_curr = 0;
+					operation_stt = 1;
+				}
+				console.log("------- MUL -------------");
+				console.log("temp_in_equal: " +temp_in_equal);
+				console.log("number2_curr: " +number2_curr);
+				console.log("total_curr: " +total_curr)
+				console.log("operation_stt*: " +operation_stt);
+			}
+			operation_div.onclick = function() {div_function()};
+			function div_function(){
+				operation_curr = "div";
+				if (operation_stt == 0) {
+					operation_stt = 1;
+					number2_curr = total_curr;
+					total_curr = 0;
+					operation_stt = 1;
+				}
+				console.log("------- DIV -------------");
+				console.log("temp_in_equal: " +temp_in_equal);
+				console.log("number2_curr: " +number2_curr);
+				console.log("total_curr: " +total_curr)
+				console.log("operation_stt/: " +operation_stt);
+			}
+
+			//handle equal
+			var equal_stt = 0;
+			var temp_in_equal = 0;
+			key_equal.onclick = function() {equal_function()};
+			function  equal_function() {
+				console.log("equal_stt: " + equal_stt);
+				if (equal_stt == 0) {
+					if (operation_curr == "add") {
+						temp_in_equal = total_curr +  number2_curr;	
+					}
+					if (operation_curr == "sub") {
+						temp_in_equal = -total_curr + number2_curr;
+					}
+					if (operation_curr == "mul") {
+						temp_in_equal = total_curr * number2_curr;
+						// temp_in_equal = temp_in_equal.toFixed(2);
+					}
+					if (operation_curr == "div") {	
+						temp_in_equal = number2_curr / total_curr;
+						// temp_in_equal = temp_in_equal.toFixed(2);
+					}
+				}	
+				equal_stt = 1;
+				operation_stt = 0;	
+				number_display.innerHTML = temp_in_equal;
+				number2_curr = temp_in_equal;
+				total_curr = temp_in_equal;
+				// total_curr = 0;
+				console.log("------- EQUAL -------------");
+				console.log("temp_in_equal: " +temp_in_equal);
+				console.log("number2_curr: " +number2_curr);
+				console.log("total_curr: " +total_curr)
+			}
+
+			//handle reset key "AC || C BUTTON"
+			key_reset.onclick = function() {reset_function()};
+			function reset_function() {
+				number2_curr = 0;
+				total_curr = 0;
+				operation_stt = 0;
+				operation_add_stt = 0;
+				operation_sub_stt = 0;
+				temp = 0;
+				temp_in_equal = 0;
+				number_display.innerHTML = temp_in_equal;
+			}
+
+			//handle dot key "." BUTTON
+			key_dot.onclick = function() {dot_function()};
+			function dot_function() {
+
+			}
+
+			//handle number2_curr
+			var number_class = document.getElementsByClassName("number");
+			
+		
+		</script>
+
+	</body>
+</html>
