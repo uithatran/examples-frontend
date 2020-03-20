@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <script>
+    $(document).ready(function () {
+      var select1, select2;
+      console.log(select1);
+      console.log(select2);
+      $(".calculate").click(function () {
+        select1 = $('#select1').val();
+        select2 = $('#select2').val();
+        var val_number = $("#convert").val();
+        if(select1 == select2) {
+          show_result(val_number);
+        } else if(select1 == 0) {
+          show_result(calculateCF(val_number));
+        } else {
+          show_result(calculateFC(val_number));
+        }
+      });
+    });
+    function calculateCF(n) {
+      return 1.8 * n + 32;
+    }
+    function calculateFC(n) {
+      return (n - 32) * 5 / 9;
+    }
+    function show_result(number) {
+      $('#result').val(number);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container d-flex flex-column justify-content-center h-100 w-75">
+    <div class="d-flex flex-row align-items-center">
+      <label for="convert">Convert</label>
+      <input type="number" name="convert" id="convert" class="form-control mx-2">
+      <select class="custom-select" id="select1">
+        <option selected value="0">C</option>
+        <option value="1">F</option>
+      </select>
+      <select class="custom-select" id="select2">
+        <option selected value="1">F</option>
+        <option value="0">C</option>
+      </select>
+      <button class="btn calculate align-items-center">Calculate</button>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+      <label for="result">Result: </label>
+      <input class="form-control ml-3 w-100" id="result" value="0">
+    </div>
+  </div>
+</body>
+
+</html>

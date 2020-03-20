@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="calculator.js"></script>
+</head>
+
+<body>
+    <div class="calculator d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center content-center">
+            <div class="cal_display">
+                <p id="monitor" style="margin-bottom: 10px;">0</p>
+            </div>
+            <div class="cal_key">
+                <button onclick="showDisplay(this)" class="key-operator" data-notnumber="add">+</button>
+                <button onclick="showDisplay(this)" class="key-operator" data-notnumber="sub">-</button>
+                <button onclick="showDisplay(this)" class="key-operator" data-notnumber="mul">&times</button>
+                <button onclick="showDisplay(this)" class="key-operator" data-notnumber="div">&divide</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "7">7</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "8">8</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "9">9</button>
+                <button onclick="showDisplay(this)" class="key-equals" data-notnumber="equals">&equals;</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "4">4</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "5">5</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "6">6</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "1">1</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "2">2</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "3">3</button>
+                <button onclick="showDisplay(this)" class="key-number" data-number = "0">0</button>
+                <button onclick="showDisplay(this)" class="key-dot" data-notnumber="dot">&sdot;</button>
+                <button onclick="showDisplay(this)" class="key-ac" data-notnumber="ac">AC</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
